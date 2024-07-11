@@ -8,8 +8,8 @@ const FirstSection = () => {
         className="text-black text-center bg-white flex justify-center items-center sm:mb-10"
         style={{
           width: "100%",
-          minHeight: "70vh", // Default minimum height for smaller screens
-          padding: "10% 5%", // Adjust padding for smaller screens
+          minHeight: "90vh",
+          padding: "10% 5%",
           backgroundColor: "rgba(255, 255, 255, 0.5)",
           backdropFilter: "blur(1px)",
           boxSizing: "border-box",

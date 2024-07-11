@@ -30,7 +30,7 @@ const Navbar = ({ cartSize }) => {
               placeholder="Search Product"
               className="w-full py-2 px-4 bg-gray-800 text-white placeholder-gray-400"
             />
-            <button className="absolute text-2xl right-0 top-0  mr-2">
+            <button className="absolute text-white text-2xl right-0 top-0  mr-2">
               <i className="fa fa-search"></i>
             </button>
           </div>

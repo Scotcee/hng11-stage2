@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import CartPage from "../pages/CartPage";
 
-const Navbar = () => {
+const Navbar = ({ cartSize }) => {
+  const [show, setShow] = useState(true);
+  const [cart, setCart] = useState([]);
+  Navbar.propTypes = {
+    cartSize: PropTypes.number.isRequired,
+  };
+
+  const itemCount = cartSize;
   return (
     <div
       className="text-black text-bold"
@@ -54,9 +62,12 @@ const Navbar = () => {
         </div>
 
         {/* Cart Icon */}
-        <div className="flex-shrink">
+        <div className="flex-shrink relative">
           <Link to="/cart" className="text-gray-700 hover:text-gray-900">
-            <i className="fa fa-shopping-cart text-3xl" aria-hidden="true"></i>
+            <i className="fa fa-shopping-cart text-5xl" aria-hidden="true"></i>
+            <span className="absolute top-0 left-5 flex justify-center items-center bg-red-800 text-white font-bold text-md w-7 h-7 rounded-full ">
+              {itemCount}
+            </span>
           </Link>
         </div>
 

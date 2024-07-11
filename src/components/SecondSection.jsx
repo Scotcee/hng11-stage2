@@ -1,117 +1,11 @@
 import React, { useState } from "react";
-import shirt1 from "../assets/shirts/shirt1.png";
-import shirt2 from "../assets/shirts/shirt2.png";
-import shirt3 from "../assets/shirts/shirt3.png";
-import shirt4 from "../assets/shirts/shirt4.png";
-import shirt5 from "../assets/shirts/shirt5.png";
-import shirt6 from "../assets/shirts/shirt6.png";
-import shirt7 from "../assets/shirts/shirt7.png";
-import shirt8 from "../assets/shirts/shirt8.png";
-import shoes from "../assets/shirts/shoes.png";
-import watch from "../assets/shirts/watch.jpg";
-import watch2 from "../assets/shirts/watch2.jpg";
+import products from "../assets/ProductList";
 
-const SecondSection = () => {
-  const products = [
-    {
-      id: 1,
-      image: shirt1,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 2,
-      image: shirt2,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 3,
-      image: shirt3,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 4,
-      image: shirt4,
-      title: "Female Wears",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 5,
-      image: shirt5,
-      title: "Short Gowns",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 6,
-      image: shirt6,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 7,
-      image: shirt7,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 8,
-      image: shirt8,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 9,
-      image: shoes,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 10,
-      image: watch,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 11,
-      image: watch2,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-    {
-      id: 12,
-      image: shirt8,
-      title: "Product Design",
-      description: "Deserunt non fugiat aute cons",
-      price: "$32",
-      discountPrice: "$35",
-    },
-  ];
-
+const SecondSection = ({ handleAddToCart }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [buttonColors, setButtonColors] = useState(
+    Array(products.length).fill("bg-green-500")
+  );
 
   const productsPerPage = 4;
 
@@ -123,6 +17,14 @@ const SecondSection = () => {
   );
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const addToCartAndUpdateColor = (productIndex, product) => {
+    handleAddToCart(product);
+    const updatedColors = buttonColors.map((color, index) =>
+      index === productIndex ? "bg-gray-500" : "bg-green-500"
+    );
+    setButtonColors(updatedColors);
+  };
 
   return (
     <>
@@ -141,7 +43,7 @@ const SecondSection = () => {
         <h1 className="text-3xl font-bold my-5">Products</h1>
 
         <div className="flex flex-wrap justify-between py-2 px-2">
-          {currentProducts.map((product) => (
+          {currentProducts.map((product, index) => (
             <div
               key={product.id}
               className="Product-Tile border shadow-lg mb-2"
@@ -170,7 +72,13 @@ const SecondSection = () => {
                   {product.discountPrice}
                 </p>
                 <div className="border-2 border-black py-1 px-2">
-                  <i className="fa fa-shopping-cart"></i>
+                  <button
+                    onClick={() => addToCartAndUpdateColor(index, product)}
+                    className={`text-white ${buttonColors[index]} py-1 px-2 hover:bg-gray-600 transition duration-300`}
+                  >
+                    {" "}
+                    <i className="fa fa-shopping-cart"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -183,7 +91,7 @@ const SecondSection = () => {
             disabled={currentPage === 1}
             className="mx-1 px-3 py-1 border bg-white hover:bg-gray-200 transition duration-300"
           >
-            <i class="fa fa-chevron-left"></i>
+            <i className="fa fa-chevron-left"></i>
           </button>
           {Array.from(
             { length: Math.ceil(products.length / productsPerPage) },
@@ -206,7 +114,7 @@ const SecondSection = () => {
             }
             className="mx-1 px-3 py-1 border bg-white hover:bg-gray-200 transition duration-300"
           >
-            <i class="fa fa-chevron-right"></i>
+            <i className="fa fa-chevron-right"></i>
           </button>
         </div>
       </div>

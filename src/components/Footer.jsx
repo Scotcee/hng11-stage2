@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
     >
       <div className="max-w-7xl mx-auto px-4 py-2 flex flex-wrap md:flex-no-wrap items-center">
         {/* Logo */}
-        <div className="hidden md:block w-full md:w-1/4 mb-8 lg:mb-0">
+        <div className="hidden md:hidden lg:block w-full lg:w-1/4 mb-8 lg:mb-0">
           <a href="#" className="flex-shrink-0">
             <img src={logo} alt="logo" className="h-30" />
           </a>

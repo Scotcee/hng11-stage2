@@ -16,7 +16,7 @@ const products = [
         image: shirt1,
         title: "Product Design",
         description: "Deserunt non fugiat aute cons",
-        price: "32",
+        price: 32,
         discountPrice: "$35",
     },
     {
@@ -24,7 +24,7 @@ const products = [
         image: shirt2,
         title: "Puma Design",
         description: "March the road fit",
-        price: "15",
+        price: 15,
         discountPrice: "$10",
     },
     {
@@ -32,7 +32,7 @@ const products = [
         image: shirt3,
         title: "T- Shirt",
         description: "Official clothes",
-        price: "30",
+        price: 30,
         discountPrice: "$32",
     },
     {
@@ -40,7 +40,7 @@ const products = [
         image: shirt4,
         title: "Female Wears",
         description: "Sport wears for ladies",
-        price: "25",
+        price: 25,
         discountPrice: "$39",
     },
     {
@@ -48,7 +48,7 @@ const products = [
         image: shirt5,
         title: "Short Gowns",
         description: "Ladies Beautiful Gowns",
-        price: "32",
+        price: 32,
         discountPrice: "$35",
     },
     {
@@ -56,7 +56,7 @@ const products = [
         image: shirt6,
         title: "Different Design",
         description: "Deserunt non fugiat aute cons",
-        price: "32",
+        price: 40,
         discountPrice: "$35",
     },
     {
@@ -64,7 +64,7 @@ const products = [
         image: shirt7,
         title: "Clothing Men",
         description: "Assesment for Men",
-        price: "32",
+        price: 42,
         discountPrice: "$35",
     },
     {
@@ -72,7 +72,7 @@ const products = [
         image: shirt8,
         title: "Best Outfits",
         description: "Comfortable silk and cotton",
-        price: "32",
+        price: 22,
         discountPrice: "$35",
     },
     {
@@ -80,7 +80,7 @@ const products = [
         image: shoes,
         title: "Sport shoes",
         description: "Comfortable for any weather",
-        price: "32",
+        price: 39,
         discountPrice: "$35",
     },
     {
@@ -88,7 +88,7 @@ const products = [
         image: watch,
         title: "I-watch",
         description: "The original deal",
-        price: "32",
+        price: 41,
         discountPrice: "$35",
     },
     {
@@ -96,7 +96,7 @@ const products = [
         image: watch2,
         title: "Apple clone",
         description: "Looks exactly like iwatch",
-        price: "32",
+        price: 28,
         discountPrice: "$35",
     },
     {
@@ -104,7 +104,7 @@ const products = [
         image: shirt8,
         title: "Product Design",
         description: "Deserunt non fugiat aute cons",
-        price: "32",
+        price: 32,
         discountPrice: "$35",
     },
 ];

@@ -3,9 +3,8 @@ import products from "../assets/ProductList";
 
 const SecondSection = ({ handleAddToCart }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [buttonColors, setButtonColors] = useState(
-    Array(products.length).fill("bg-green-500")
-  );
+  const [cartSize, setCartSize] = useState(0);
+  const [addedProducts, setAddedProducts] = useState([]);
 
   const productsPerPage = 4;
 
@@ -19,11 +18,15 @@ const SecondSection = ({ handleAddToCart }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const addToCartAndUpdateColor = (productIndex, product) => {
-    handleAddToCart(product);
-    const updatedColors = buttonColors.map((color, index) =>
-      index === productIndex ? "bg-gray-500" : "bg-green-500"
-    );
-    setButtonColors(updatedColors);
+    if (!addedProducts.includes(product.id)) {
+      setCartSize((prevCartSize) => prevCartSize + 1);
+      setAddedProducts((prevAddedProducts) => [
+        ...prevAddedProducts,
+        product.id,
+      ]);
+
+      handleAddToCart(product);
+    }
   };
 
   return (
@@ -67,14 +70,14 @@ const SecondSection = ({ handleAddToCart }) => {
                 <p>{product.description}</p>
               </div>
               <div className="price flex justify-between font-bold text-2xl py-2 pr-5">
-                <p>{product.price}</p>
+                <p>${product.price}</p>
                 <p className="text-gray-500 line-through">
                   {product.discountPrice}
                 </p>
                 <div className="border-2 border-black py-1 px-2">
                   <button
                     onClick={() => addToCartAndUpdateColor(index, product)}
-                    className={`text-white ${buttonColors[index]} py-1 px-2 hover:bg-gray-600 transition duration-300`}
+                    className={`text-white bg-green-500 py-1 px-2 hover:bg-gray-600 transition duration-300`}
                   >
                     {" "}
                     <i className="fa fa-shopping-cart"></i>

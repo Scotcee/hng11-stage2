@@ -1,7 +1,7 @@
 import React from "react";
 import products from "./../assets/ProductList";
 
-const CartSection = () => {
+const CartSection = ({ cart, setCart }) => {
   const handleRemoveFromCart = (productToRemove) => {
     const updatedCart = cart.filter((item) => item.id !== productToRemove.id);
     setCart(updatedCart);
